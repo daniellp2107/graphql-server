@@ -1,41 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { User } from "./interfaces/user.interface";
-
-//Tipo Query 
-const typeDefs = `#graphql
-  type User {
-    name:String,
-    email:String
-
-  }
-
-  type Query {
-    users: [User]  
-  }
-`;
-
-const users:User[] = [
-  {
-    name:'John',
-    email:'john@example.com'
-  },
-  {
-    name:'Juan',
-    email:'juan@example.com'
-  },
-  {
-    name:'Kevin',
-    email:'kevin@example.com'
-  },
-]
-
-//Resolver
-const resolvers = {
-  Query:{
-    users : () =>users, 
-  }
-};
+import {typeDefs} from './typeDefs/index';
+import { resolvers } from "./resolvers";
 
 const server = new ApolloServer({
   typeDefs,
