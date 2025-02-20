@@ -4,7 +4,6 @@ export const typeDefs = `#graphql
     id:ID
     name:String,
     email:String
-    role:Role
   }
 
   input UserID{
@@ -17,6 +16,6 @@ export const typeDefs = `#graphql
 
   type Query {
     users: [User]
-    user(id:UserID!):User
+    user:[User]
   }
 `;
